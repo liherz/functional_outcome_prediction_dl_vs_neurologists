@@ -4,6 +4,8 @@ This repository contains the code to the paper "Deep Learning vs. Neurologists: 
 
 Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper.
 
+## Ablauf
+
 ## Structure
 
 `./python`: Contains the code for developing and evaluating the prediction models
