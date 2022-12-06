@@ -2,7 +2,7 @@
 
 This repository contains the code to the paper "Deep Learning vs. Neurologists: Functional Outcome Prediction in Large Vessel Occlusion Stroke Patients Based on Clinical and Imaging Data".
 
-Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results in terms of test predictions from the models evaluated in the 5-fold cross-validation setting as well as predictions from the rating competition.
+Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper.
 
 ## Structure
 
@@ -16,3 +16,11 @@ Clinical variables and imaging data can not be made available for reproducibilit
 - `3D_CNN_ONTRAM_Bern_DWI_mrs_preprocessed_ENSEMBLE_CV_ORDINAL_Resnet_AddTMAX.ipynb`: Notebook containing the code for defining, training and evaluating the models based on TMAX perfusion maps (SI-CSb-TMAX), Tmax perfusion maps + DWI (SI-CSb-TMAX-DWI) and TMAX perfusion maps, DWI + clinical variables (SI-LSx-CSb-TMAX-DWI).
 
 `./R`: Contains the code for reproducing the figures and the results presented in the manuscript
+
+`./data`: Contains the intermediate results for the different models in terms of
+
+- test predictions for each fold from the 5-fold CV: `trafo_`
+- all test prediction for one model resulting from the 5-fold CV: `test_`
+- estimates for the clinical variables obtained from the linear shift parts of the ONTRAMs: `estimates_`
+
+The ending `_bin` indicates the predictions for the binarized outcome.
