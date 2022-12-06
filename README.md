@@ -21,6 +21,8 @@ Clinical variables and imaging data can not be made available for reproducibilit
 
 - test predictions for each fold from the 5-fold CV: `trafo_`
 - all test prediction for one model resulting from the 5-fold CV: `test_`
-- estimates for the clinical variables obtained from the linear shift parts of the ONTRAMs: `estimates_`
+- estimates for the clinical variables obtained from the linear shift parts of the ONTRAMs: `estimates`
+- standard deviations corresponding to the normalized clinical variables: `estimates_sd`
+- The achieved negative log likelihood in the 5-folds: `nll_`
 
 The ending `_bin` indicates the predictions for the binarized outcome.
