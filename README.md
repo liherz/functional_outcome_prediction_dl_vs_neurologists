@@ -12,10 +12,13 @@ Clinical variables and imaging data can not be made available for reproducibilit
 - `functions`: Some helper functions including code for 3D data augmentation and for plotting the 3D imaging data.
 - `k_ontram_functions`: Code for defining and training the ONTRAMs.
 - `callbacks`: Test predictions obtained in the cross-validation
-- `3D_CNN_ONTRAM_Bern_DWI_mrs_preprocessed_ENSEMBLE_CV_ORDINAL_Resnet.ipynb`: Notebook containing the code for defining, training and evaluating the models based on clinical variables (SI-LSx), imaging data in terms of diffusion weighted imaging (SI-CSb) and a combination of both (SI-LSx-CSb). 
-- `3D_CNN_ONTRAM_Bern_DWI_mrs_preprocessed_ENSEMBLE_CV_ORDINAL_Resnet_AddTMAX.ipynb`: Notebook containing the code for defining, training and evaluating the models based on TMAX perfusion maps (SI-CSb-TMAX), Tmax perfusion maps + DWI (SI-CSb-TMAX-DWI) and TMAX perfusion maps, DWI + clinical variables (SI-LSx-CSb-TMAX-DWI).
 
-`./R`: Contains the code for reproducing the figures and the results presented in the manuscript
+All code to define, train and validate the models is contained in the two notebooks:
+
+- `3D_CNN_ONTRAM_Bern_DWI_mrs_preprocessed_ENSEMBLE_CV_ORDINAL_Resnet.ipynb`: Models based on clinical variables (SI_LSx), imaging data in terms of diffusion weighted imaging (SI_CSb) and a combination of both (SI_LSx_CSb). 
+- `3D_CNN_ONTRAM_Bern_DWI_mrs_preprocessed_ENSEMBLE_CV_ORDINAL_Resnet_AddTMAX.ipynb`: Models based on TMAX perfusion maps (SI_CSb_TMAX) and TMAX perfusion maps + DWI (SI_CSb_TMAX_DWI).
+
+`./R`: Contains the code for reproducing figures and results presented in the manuscript
 
 `./data`: Contains the intermediate results for the different models in terms of
 
