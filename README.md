@@ -2,6 +2,8 @@
 
 This repository contains the code to the paper "Deep Learning vs. Neurologists: Functional Outcome Prediction in Large Vessel Occlusion Stroke Patients Based on Clinical and Imaging Data".
 
+Unfortunately, clinical variables and imaging data can not be made available due to privacy concerns. However, we provide intermediate results in terms of test predictions resulting from the models evaluated in the 5-fold cross-validation setting as well as the prediction of the rating competition.
+
 ## Structure
 
 `/.python`: Contains the code for developing and evaluating the prediction models
