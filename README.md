@@ -2,7 +2,7 @@
 
 This repository contains the code to the paper "Deep Learning vs. Neurologists: Functional Outcome Prediction in Large Vessel Occlusion Stroke Patients Based on Clinical and Imaging Data".
 
-# Reading and preprocessing imaging data
+## Reading and preprocessing imaging data
 
 The imaging data was read in and preprocessed with the following files:
 
@@ -12,7 +12,7 @@ The imaging data was read in and preprocessed with the following files:
 4. `./python/preprocessing_bern_dicoms.ipynb`: Code to preprocess the DICOMs.
 
 
-# Prediction models based on clinical variables, imaging data and a combination of both
+## Prediction models based on clinical variables, imaging data and a combination of both
 
 All models described in the paper correspond to the class of ordinal neural network transformation models (ONTRAMs). ONTRAMs are interpretable deep learning based models which can input structured and unstructured data while they provide interpretable parameter estimates for the respective input. A detailed introduction into ONTRAMs can be found in the paper ["Deep and interpretable regression models for ordinal outcomes"](https://www.sciencedirect.com/science/article/pii/S003132032100443X).
 
@@ -28,7 +28,7 @@ Other relevant code to define, train and evaluate the models that is used in the
 - `./python/k_ontram_functions`: Code for defining and training the ONTRAMs.
 
 
-# Intermediate results
+## Intermediate results
 
 Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper. The predictions from the five-fold CV corresponding to the respective model are stored in the folders with the same names as the notebooks:
 
@@ -51,7 +51,7 @@ The folders contain the following results:
 The ending `_bin` indicates the predictions for the binarized outcome.
 
 
-# Evaluation and visualization
+## Evaluation and visualization
 
 To obtain confidence intervals, we do bootstrapping...
 
