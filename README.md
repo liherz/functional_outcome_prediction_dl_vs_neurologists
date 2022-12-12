@@ -6,10 +6,10 @@ This repository contains the code to the paper "Deep Learning vs. Neurologists: 
 
 The imaging data was read in and preprocessed with the following files:
 
-1. `./python/read_bern_dicoms01.ipynb`: Code to read in all DICOMs from an external drive
-2. `./R/read_bern_dicoms02.R`: Code to exatract the patients that fullfill the study requirements
-3. `./python/read_bern_dicoms03.ipynb`: Code to read in the DICOMs that fullfill the study requirements from the external drive
-4. `./python/preprocessing_bern_dicoms.ipynb`: Code to preprocess the DICOMs.
+1. `python/read_bern_dicoms01.ipynb`: Code to read in all DICOMs from an external drive
+2. `R/read_bern_dicoms02.R`: Code to exatract the patients that fullfill the study requirements
+3. `python/read_bern_dicoms03.ipynb`: Code to read in the DICOMs that fullfill the study requirements from the external drive
+4. `python/preprocessing_bern_dicoms.ipynb`: Code to preprocess the DICOMs.
 
 
 ## Prediction models based on clinical variables, imaging data and a combination of both
