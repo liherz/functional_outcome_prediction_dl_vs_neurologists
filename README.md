@@ -23,9 +23,9 @@ In this paper, we developed ONTRAMs for acute ischemic stroke patients to predic
 
 Other relevant code to define, train and evaluate the models that is used in the two notebooks is contained in the folders:
 
-- `./classification_models_3D_master/`: The neural network architectures to model the imaging data in the ONTRAMs are mainly based on 3D ResNets which are initialized with transformed 2D weightes of 2D ResNets extracted from ImageNet. The code for that is copied and only slightly adapted from the repository [ZFTurbo/classification_models_3D](https://github.com/ZFTurbo/classification_models_3D).
-- `./functions/`: Some helper functions including code for 3D data augmentation and for plotting the 3D imaging data.
-- `./k_ontram_functions/`: Functions for defining and training the ONTRAMs.
+- `../classification_models_3D_master/`: The neural network architectures to model the imaging data in the ONTRAMs are mainly based on 3D ResNets which are initialized with transformed 2D weightes of 2D ResNets extracted from ImageNet. The code for that is copied and only slightly adapted from the repository [ZFTurbo/classification_models_3D](https://github.com/ZFTurbo/classification_models_3D).
+- `../functions/`: Some helper functions including code for 3D data augmentation and for plotting the 3D imaging data.
+- `../k_ontram_functions/`: Functions for defining and training the ONTRAMs.
 
 
 ## Intermediate results
