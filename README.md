@@ -23,9 +23,9 @@ In this paper, we developed ONTRAMs for acute ischemic stroke patients to predic
 
 Other relevant code to define, train and evaluate the models that is used in the two notebooks is contained in the folders:
 
-- `./classification_models_3D_master`: The neural network architectures for the imaging data in the ONTRAMs are mainly based on 3D ResNets which are initialized with transformed 2D weightes of 2D ResNets extracted from ImageNet. The code for that is copied and only slightly adapted from the repository [ZFTurbo/classification_models_3D](https://github.com/ZFTurbo/classification_models_3D) and stored in the folder:
-- `./functions`: Some helper functions including code for 3D data augmentation and for plotting the 3D imaging data.
-- `./k_ontram_functions`: Code for defining and training the ONTRAMs.
+- `./classification_models_3D_master/`: The neural network architectures to model the imaging data in the ONTRAMs are mainly based on 3D ResNets which are initialized with transformed 2D weightes of 2D ResNets extracted from ImageNet. The code for that is copied and only slightly adapted from the repository [ZFTurbo/classification_models_3D](https://github.com/ZFTurbo/classification_models_3D).
+- `./functions/`: Some helper functions including code for 3D data augmentation and for plotting the 3D imaging data.
+- `./k_ontram_functions/`: Functions for defining and training the ONTRAMs.
 
 
 ## Intermediate results
@@ -44,7 +44,8 @@ The results of the models from the five-fold CV are stored in folders with same 
   - `./SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps
   - `./SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI
 
-In each model folder, there is a file `test_`, containing all test predictions of the 5-fold CV. The ending `_bin` of the files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`fold0`, ..., `fold4`) summarizing the test results from the 5-fold CV for each fold:
+In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. The ending `_bin` of files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`fold0`, ..., `fold4`) summarizing the test results from the 5-fold CV for the respective fold:
+
 - `./trafo_`: test predictions
 - `./estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
 - `./estimates_sd`: standard deviations corresponding to the normalized clinical variables
@@ -56,19 +57,19 @@ In each model folder, there is a file `test_`, containing all test predictions o
 The predictions of the models were compared to predictions of five raters which are contained in the folder
 
 - `./results_raters`: Results of the raters based on 
-  - `./dat_clinical.csv`: clinical data
-  - `./dat_imaging.csv`: imaging data
-  - `./dat_clinical_and_imaging.csv`: clinical and imaging data
+  - `./dat_clinical.csv`: Clinical data
+  - `./dat_imaging.csv`: Imaging data
+  - `./dat_clinical_and_imaging.csv`: Clinical and imaging data
 
 
 ## Evaluation and visualization
 
 Results of models and raters were analysed in R. The code is in the folder `./R`, which is structured as follows:
 
-- `./calculate_bootstrap_results.R`: Code to obtain the 95% bootstrap confidence intervals for the respective metrics. The code is mainly based on the functions
+- `./calculate_bootstrap_results.R`: Code to obtain the 95% bootstrap confidence intervals for the respective evaluation metric. The code is mainly based on the functions
   - `./functions/bootstrapping.R`
   - `./functions/metrics.R`
-- `./irr.R`: Code to calculate inter-rater reliability.
-- `./visualization.R`: Code to reproduce the figures in the paper. Functions for visualization are contained in the files:
+- `./irr.R`: Code to evaluate inter-rater reliability.
+- `./visualization.R`: Code to reconstruct the figures in the paper. Functions used for visualization are contained in the files:
   - `./functions/helper.R`
   - `./functions/calibration.R`
