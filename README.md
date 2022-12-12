@@ -16,7 +16,7 @@ The imaging data was read in and preprocessed with the following files:
 
 All models described in the paper correspond to the class of ordinal neural network transformation models (ONTRAMs). ONTRAMs are interpretable deep learning based models which can input structured and unstructured data while they provide interpretable parameter estimates for the respective input. A detailed introduction into ONTRAMs can be found in the paper ["Deep and interpretable regression models for ordinal outcomes"](https://www.sciencedirect.com/science/article/pii/S003132032100443X).
 
-In this paper, we developed ONTRAMs for acute ischemic stroke patients to predict functional outcome in terms of the modified Rankin Scale (mRS) three months after hospital admission. The models are either based on clinical variables, imaging data or a combination of both. All models predict the seven classes of the mRS and are evaluated in a five-fold cross validation (CV). The models are implemented in python. The code is in the folder `./python`, in the two notebooks:
+In this paper, we developed ONTRAMs for acute ischemic stroke patients to predict functional outcome in terms of the modified Rankin Scale (mRS) three months after hospital admission. The models are either based on clinical variables, imaging data or a combination of both. All models predict the seven classes of the mRS and are evaluated in a five-fold cross validation (CV). The models are implemented in python. The code is in the folder `python`, in the two notebooks:
 
 - `./ontrams_3d_resent_clinical_dwi.ipynb`: Models based on clinical variables (SI-LSx), imaging data in terms of diffusion weighted imaging (SI_CSb) and a combination of both (SI_LSx_CSb).
 - `./ontrams_3d_resent_dwi_tmax.ipynb`: Models based on TMAX perfusion maps (SI_CSb_TMAX) and a combination of DWI and TMAX perfusion maps (SI_CSb_TMAX_DWI).
@@ -30,46 +30,46 @@ Other relevant code to define, train and evaluate the models that is used in the
 
 ## Intermediate results
 
-Clinical variables and imaging data can not be made available due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper. The intermediate results are stored in the folder `./callbacks`.
+Clinical variables and imaging data can not be made available due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper. The intermediate results are stored in the folder `callbacks`.
 
 #### Prediction models
 
 The results of the models from the five-fold CV are stored in folders with same names as the notebooks:
 
 - `./ontrams_3d_resent_clinical_dwi`:
-  - `./SI_LSx`: Results from the model based on clinical variables
-  - `./SI_CSb`: Results from the model based on DWI
-  - `./SI_LSx_CSb`: Results from the model based on clinical variables and DWI
+  - `../SI_LSx`: Results from the model based on clinical variables
+  - `../SI_CSb`: Results from the model based on DWI
+  - `../SI_LSx_CSb`: Results from the model based on clinical variables and DWI
 - `./ontrams_3d_resent_dwi_tmax/`:
-  - `./SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps
-  - `./SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI
+  - `../SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps
+  - `../SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI
 
-In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. The ending `_bin` of files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`fold0`, ..., `fold4`) summarizing the test results from the 5-fold CV for the respective fold:
+In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. The ending `_bin` of files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`~/fold0`, ..., `~/fold4`) summarizing the test results from the 5-fold CV for the respective fold:
 
-- `./trafo_`: test predictions
-- `./estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
-- `./estimates_sd`: standard deviations corresponding to the normalized clinical variables
-- `./nll_`: negative log likelihood values
+- `~/trafo_`: test predictions
+- `~/estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
+- `~/estimates_sd`: standard deviations corresponding to the normalized clinical variables
+- `~/nll_`: negative log likelihood values
 
 
 #### Raters
 
-The predictions of the models were compared to predictions of five raters which are contained in the folder
+The predictions of the models were compared to predictions of five raters. The results of the prediction challenge were read in with the file `R/read_results_raters.R`. The file produces files with the predictions of the raters, provided in the folder `callbacks`:
 
 - `./results_raters`: Results of the raters based on 
-  - `./dat_clinical.csv`: Clinical data
-  - `./dat_imaging.csv`: Imaging data
-  - `./dat_clinical_and_imaging.csv`: Clinical and imaging data
+  - `../dat_clinical.csv`: Clinical data
+  - `../dat_imaging.csv`: Imaging data
+  - `../dat_clinical_and_imaging.csv`: Clinical and imaging data
 
 
 ## Evaluation and visualization
 
-Results of models and raters were analysed in R. The code is in the folder `./R`, which is structured as follows:
+Results of models and raters were finally analyzed in R. The code is in the folder `R`, which is structured as follows:
 
 - `./calculate_bootstrap_results.R`: Code to obtain the 95% bootstrap confidence intervals for the respective evaluation metric. The code is mainly based on the functions
-  - `./functions/bootstrapping.R`
-  - `./functions/metrics.R`
+  - `../functions/bootstrapping.R`
+  - `../functions/metrics.R`
 - `./irr.R`: Code to evaluate inter-rater reliability.
 - `./visualization.R`: Code to reconstruct the figures in the paper. Functions used for visualization are contained in the files:
-  - `./functions/helper.R`
-  - `./functions/calibration.R`
+  - `../functions/helper.R`
+  - `../functions/calibration.R`
