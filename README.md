@@ -30,29 +30,45 @@ Other relevant code to define, train and evaluate the models that is used in the
 
 ## Intermediate results
 
-Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper. The predictions from the five-fold CV corresponding to the respective model are stored in the folders with the same names as the notebooks:
+Clinical variables and imaging data can not be made available for reproducibility due to privacy concerns. However, we provide intermediate results to reproduce large parts of the results and the figures in the paper. The intermediate results are stored in the folder `./callbacks`.
 
-- `./callbacks/ontrams_3d_resent_clinical_dwi/`:
-  - `SI-LSx`: Clinical variables
-  - `SI-CSb`: Imaging data in terms of DWI
-  - `SI-LSx-CSb`: Clinical variables and imaging data in terms of DWI
-- `./callbacks/ontrams_3d_resent_dwi_tmax/`:
-  - `SI_CSb_TMAX`: Imaging data in terms of TMAX perfusion maps
-  - `SI_CSb_TMAX_DWI`: Imaging data in terms of TMAX perfusion maps and DWI
+#### Prediction models
 
-The folders contain the following results:
+The results of the models from the five-fold CV corresponding are stored in folders with same names as the notebooks:
 
-- `trafo_`: test predictions for each fold of the 5-fold CV
-- `test_`: all test predictions for the corresponding model resulting from the 5-fold CV
-- `estimates`: estimates for the clinical variables obtained from the linear shift parts of the ONTRAMs
-- `estimates_sd`: standard deviations corresponding to the normalized clinical variables. They are avialable for each fold because they were nomalized based on the training data of the respective fold
-- `nll_`: negative log likelihood values obtained in each of the five folds of the CV
+- `./ontrams_3d_resent_clinical_dwi`:
+  - `./SI_LSx`: Results from the model based on clinical variables
+  - `./SI_CSb`: Results from the model based on DWI
+  - `./SI_LSx_CSb`: Results from the model based on clinical variables and DWI
+- `./ontrams_3d_resent_dwi_tmax/`:
+  - `./SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps
+  - `./SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI
 
-The ending `_bin` indicates the predictions for the binarized outcome.
+In each model folder, there is a file `test_`, containing all test predictions of the 5-fold CV. The ending `_bin` of the files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`fold0`, ..., `fold4`) summarizing the test results from the 5-fold CV for each fold:
+- `./trafo_`: test predictions for each fold of the 5-fold CV
+- `./estimates`: estimates for the clinical variables for each fold of the 5-fold CV obtained from the linear shift parts of the ONTRAMs
+- `./estimates_sd`: standard deviations corresponding to the normalized clinical variables. They are avialable for each fold because they were nomalized based on the training data of the respective fold
+- `./nll_`: negative log likelihood values achieved in each fold of the 5-fold CV
+
+
+#### Raters
+
+The predictions of the models were compared to predictions of five raters which are contained in the folder
+
+- `./results_raters`: Results of the raters based on 
+  - `./dat_clinical.csv`: clinical data
+  - `./dat_imaging.csv`: imaging data
+  - `./dat_clinical_and_imaging.csv`: clinical and imaging data
 
 
 ## Evaluation and visualization
 
-To obtain confidence intervals, we do bootstrapping...
+The results of the models and the raters were analysed in R. The code is in the folder `./R`, which is structured as follows:
 
-Bootstrapping results, interrater agreement and figures are obtained with `R`:
+- `./calculate_bootstrap_results.R`: Code to obtain the bootstrap results for all the models. The code is mainly based on the functions
+  - `./functions/bootstrapping.R`
+  - `./functions/metrics.R`
+- `./irr.R`: Calculating Fleiss Kappa to evaluate inter-rater reliability.
+- `./visualization.R`: Code to reproduce the figures in the paper. Functions for visualization are contained in the files:
+  - `./functions/helper.R`
+  - `./functions/calibration.R`
