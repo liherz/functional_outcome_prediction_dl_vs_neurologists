@@ -37,24 +37,26 @@ Clinical variables and imaging data can not be made available due to privacy con
 The results of the models from the five-fold CV are stored in folders with same names as the notebooks:
 
 - `./ontrams_3d_resent_clinical_dwi`:
-  - `../SI_LSx`: Results from the model based on clinical variables
-  - `../SI_CSb`: Results from the model based on DWI
-  - `../SI_LSx_CSb`: Results from the model based on clinical variables and DWI
+  - `../SI_LSx`: Results from the model based on clinical variables.
+  - `../SI_CSb`: Results from the model based on DWI.
+  - `../SI_LSx_CSb`: Results from the model based on clinical variables and DWI.
 - `./ontrams_3d_resent_dwi_tmax/`:
-  - `../SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps
-  - `../SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI
+  - `../SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps.
+  - `../SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI.
 
-In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. The ending `_bin` of the files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the predictions for the mRS classes 0-2 vs. 3-6. Each model folder additionally contains 5 folders (`~/fold0`, ..., `~/fold4`) summarizing the test results from the 5-fold CV for the respective fold:
+In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. Each model folder additionally contains 5 folders (`~/fold0`, ..., `~/fold4`) summarizing the test results from the 5-fold CV for the respective fold:
 
 - `~/trafo_`: test predictions
 - `~/estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
 - `~/estimates_sd`: standard deviations corresponding to the normalized clinical variables
 - `~/nll_`: negative log likelihood values
 
+The files with the ending `_pdf.csv` contain the probabilities for the respective classes. The files with the ending `_cdf.csv`, the conditional density functions. The ending `_bin` of the files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the probabilities for the mRS classes 0-2 vs. 3-6.
+
 
 #### Raters
 
-The predictions of the models were compared to predictions of five raters. The results of the prediction challenge were read in with the file `R/read_results_raters.R`. The file produces files with the predictions of the raters, provided in the folder `callbacks`:
+The predictions of the models were compared to predictions of five raters. The results of the prediction challenge were read in with the file `R/read_results_raters.R`. The file produces files with the predictions of the raters, provided in the folder `callbacks`, which are then used for analysis and visualization:
 
 - `./results_raters`: Results of the raters based on 
   - `../dat_clinical.csv`: Clinical data
@@ -64,7 +66,7 @@ The predictions of the models were compared to predictions of five raters. The r
 
 ## Evaluation and visualization
 
-Results of models and raters were finally analyzed in R. The code is in the folder `R`, which is structured as follows:
+Results of models and raters were analyzed in R. The code is in the folder `R`, which is structured as follows:
 
 - `./calculate_bootstrap_results.R`: Code to obtain the 95% bootstrap confidence intervals for the respective evaluation metric. The code is mainly based on the functions
   - `../functions/bootstrapping.R`
