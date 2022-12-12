@@ -40,16 +40,16 @@ The results of the models from the five-fold CV are stored in folders with same 
   - `../SI_LSx`: Results from the model based on clinical variables.
   - `../SI_CSb`: Results from the model based on DWI.
   - `../SI_LSx_CSb`: Results from the model based on clinical variables and DWI.
-- `./ontrams_3d_resent_dwi_tmax/`:
+- `./ontrams_3d_resent_dwi_tmax`:
   - `../SI_CSb_TMAX`: Results from the model based on TMAX perfusion maps.
   - `../SI_CSb_TMAX_DWI`: Results from the model based on TMAX perfusion maps and DWI.
 
-In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. Each model folder additionally contains 5 folders (`~/fold0`, ..., `~/fold4`) summarizing the test results from the 5-fold CV for the respective fold:
+In each model folder, there is a file `test_`, containing all test predictions resulting from the 5-fold CV. Each model folder additionally contains 5 folders (`fold0`, ..., `fold4`) summarizing the test results from the 5-fold CV for the respective fold:
 
-- `~/trafo_`: test predictions
-- `~/estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
-- `~/estimates_sd`: standard deviations corresponding to the normalized clinical variables
-- `~/nll_`: negative log likelihood values
+- `trafo_`: test predictions
+- `estimates`: estimates for the clinical variables resulting from the linear shift parts of the ONTRAMs
+- `estimates_sd`: standard deviations corresponding to the normalized clinical variables
+- `nll_`: negative log likelihood values
 
 The files with the ending `_pdf.csv` contain the probabilities for the respective classes. The files with the ending `_cdf.csv`, the conditional density functions. The ending `_bin` of the files indicates that the file contains the predictions for the binarized outcome. The predictions for the binarized outcome are obtained by summing up the probabilities for the mRS classes 0-2 vs. 3-6.
 
