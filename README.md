@@ -1,6 +1,6 @@
 # Deep Learning vs. Neurologists
 
-This repository contains the code to the paper "Deep Learning vs. Neurologists: Functional Outcome Prediction in Large Vessel Occlusion Stroke Patients Based on Clinical and Imaging Data".
+This repository contains the code to the paper ["Deep Learning vs. Neurologists: Functional Outcome Prediction in Large Vessel Occlusion Stroke Patients Based on Clinical and Imaging Data"](https://www.ahajournals.org/doi/10.1161/STROKEAHA.123.042496).
 
 ## Reading and preprocessing imaging data
 
